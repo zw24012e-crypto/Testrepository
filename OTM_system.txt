@@ -1,0 +1,41 @@
+@startuml
+left to right direction
+
+actor "学生" as Student
+actor "教員" as Teacher
+
+rectangle "el-Campus" {
+  usecase "アンケートに回答" as EC_Questionnaire
+  usecase "課題をダウンロード" as EC_DownloadHomework
+  usecase "掲示板を閲覧" as EC_Forum
+  usecase "言語練習を受ける" as EC_LanguagePractice
+  usecase "コンテンツを視聴" as EC_Content
+  usecase "お知らせを確認" as EC_Notice
+}
+
+rectangle "UNIVERSAL PASSPORT" {
+  usecase "シラバス参照" as UP_Syllabus
+  usecase "履修登録" as UP_Register
+  usecase "成績確認" as UP_Grade
+  usecase "時間割" as UP_Timetable
+  usecase "資格希望" as UP_License
+}
+
+Student --> EC_Questionnaire
+Student --> EC_DownloadHomework
+Student --> EC_Forum
+Student --> EC_LanguagePractice
+Student --> EC_Content
+Student --> EC_Notice
+
+Student --> UP_Syllabus
+Student --> UP_Register
+Student --> UP_Grade
+Student --> UP_Timetable
+Student --> UP_License
+
+Teacher --> EC_Notice
+Teacher --> UP_Syllabus
+Teacher --> UP_Grade
+Teacher --> UP_Timetable
+@enduml
